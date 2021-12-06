@@ -40,20 +40,24 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
 
     // filter the image
-    const filtered_image_path: Promise<string> = filterImageFromURL(image_url); 
-
-     res.status(200)
-        // send the resulting file in response
-        .sendFile(__dirname + `/util/tmp/${filtered_image_path}`, error => {
-          // output any error message to user
-          // delete the file on the server after sending the file
-          if (error) {
-            return res.status(400).send( { error_message: error })
-          }
-          else {
-            deleteLocalFiles([__dirname + `/util/tmp/${filtered_image_path}`]);
-          }
-        });
+    filterImageFromURL(image_url).then(filtered_image_path => {
+      res.status(200)
+      // send the resulting file in response
+      .sendFile(__dirname + `/util/tmp/${filtered_image_path}`, error => {
+        // output any error message to user
+        // delete the file on the server after sending the file
+        if (error) {
+          return res.status(400).send( { error_message: error })
+        }
+        else {
+          deleteLocalFiles([__dirname + `/util/tmp/${filtered_image_path}`]);
+        }
+      });
+    })
+    .catch(error => {
+      // output any error occured while processing the image
+      return res.status(422).send( { message: error } );
+    }); 
   });
 
   //! END @TODO1
