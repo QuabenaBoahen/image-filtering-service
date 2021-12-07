@@ -38,25 +38,24 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
          .send(`You need specify the specific image url in order to complete your request`);
     }
 
-
     // filter the image
     filterImageFromURL(image_url).then(filtered_image_path => {
       res.status(200)
       // send the resulting file in response
-      .sendFile(__dirname + `/util/tmp/${filtered_image_path}`, error => {
+      .sendFile(`${filtered_image_path}`, error => {
         // output any error message to user
         // delete the file on the server after sending the file
         if (error) {
           return res.status(400).send( { error_message: error })
         }
         else {
-          deleteLocalFiles([__dirname + `/util/tmp/${filtered_image_path}`]);
+          deleteLocalFiles([filtered_image_path]);
         }
       });
     })
     .catch(error => {
       // output any error occured while processing the image
-      return res.status(422).send( { message: error } );
+      return res.status(422).send( { message: `Please make sure you specify a valid image url` } );
     }); 
   });
 

@@ -1,17 +1,17 @@
 {
-  "name": "udacity-c2-image-filter",
+  "name": "image-filtering-service-boahen",
   "version": "1.0.0",
-  "description": "",
+  "description": "Image filtering service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
+    "clean": "rm -rf www/ || true",
+    "build": "npm run clean && tsc && cp .npmrc www/.npmrc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r Archive.zip . && cd ..",
     "dev": "ts-node-dev ./src/server.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grutt/udacity-c2-image-filter.git"
+    "url": "https://github.com/QuabenaBoahen/image-filtering-service.git"
   },
   "author": "",
   "license": "ISC",
@@ -32,5 +32,8 @@
     "jimp": "^0.16.1",
     "rimraf": "^3.0.2",
     "lodash": "^4.17.15"
-  }
+  },
+  "engines": {
+    "node": ">=12"
+}
 }
