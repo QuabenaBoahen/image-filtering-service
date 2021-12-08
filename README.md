@@ -13,12 +13,12 @@ You'll need to create a new node server. Open a new terminal within the project 
 
 You must have installed AWS EB cli before following the steps below. 
 
-You can follow this link [](https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/) to install and setup EB cli
+You can follow this link ![Set up the Elastic Beanstalk Command Line Interface](https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/) to install and setup EB cli
 
 ### Deploying the system to AWS Elastic Beanstalk
 
 1. Setup a new EB application by entering the following command: `eb init` and selecting/providing appropriate values for setting up the project for deployment
-2. After the completiong of step 1 above, a `config.yml` file which will serve as the configuration file for the project is created in a new directory known as `.elasticbeanstalk`
+2. After the completion of step 1 above, a `config.yml` file which will serve as the configuration file for the project is created in a new directory known as `.elasticbeanstalk`
 3. Run `npm run build` to transpile and package our code into a .zip file
 4.  Add this `deploy:
                artifact: ./www/Archive.zip` to the `config.yml` to tell Elastic Beanstalk to use this Archive.zip file for deployment
