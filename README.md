@@ -13,7 +13,7 @@ You'll need to create a new node server. Open a new terminal within the project 
 
 You must have installed AWS EB cli before following the steps below. 
 
-You can follow this link ![Set up the Elastic Beanstalk Command Line Interface] https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/ to install and setup EB cli
+You can follow this link https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/ to install and setup EB cli
 
 ### Deploying the system to AWS Elastic Beanstalk
 
@@ -29,7 +29,7 @@ You can follow this link ![Set up the Elastic Beanstalk Command Line Interface] 
 
 ### Credited links
 
-1. ![Specifics of npm's package handling](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
-2. ![How to display image from http request to external API with Node.js](https://pretagteam.com/question/how-to-display-image-from-http-request-to-external-api-with-nodejs)
+1. Specifics of npm's package handling - (https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
+2. How to display image from http request to external API with Node.js - (https://pretagteam.com/question/how-to-display-image-from-http-request-to-external-api-with-nodejs)
 
 
