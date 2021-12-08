@@ -2,14 +2,6 @@
 
 Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
-
-## Tasks
-
 ### Setup Node Environment
 
 You'll need to create a new node server. Open a new terminal within the project directory and run:
@@ -17,32 +9,26 @@ You'll need to create a new node server. Open a new terminal within the project 
 1. Initialize a new project: `npm i`
 2. run the development server with `npm run dev`
 
-### Create a new endpoint in the server.ts file
+### Prerequisite for deployment
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
+You must have installed AWS EB cli before following the steps below
+You can follow this link [](https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/) to install and setup EB cli
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
+### Deploying the system to AWS Elastic Beanstalk
 
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
+1. Setup a new EB application by entering the following command: `eb init` and selecting/providing appropriate values for setting up the project for deployment
+2. After the completiong of step 1 above, a `config.yml` file which will serve as the configuration file for the project is created in a new directory known as `.elasticbeanstalk`
+3. Run `npm run build` to transpile and package our code into a .zip file
+4.  Add this `deploy:
+               artifact: ./www/Archive.zip` to the `config.yml` to tell Elastic Beanstalk to use this Archive.zip file for deployment
+5. Finally, run `eb create` to create a setup of AWS Resources necessary to run the application
 
-### Deploying your system
+### Screenshots of successful deployment
+![](https://github.com/QuabenaBoahen/image-filtering-service/blob/master/deployment_screenshots/image-filtering-service-boahen-deployment-screenshot.png) 
 
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
+### Credited links
 
-## Stand Out (Optional)
+1. ![Specifics of npm's package handling](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
+2. ![How to display image from http request to external API with Node.js](https://pretagteam.com/question/how-to-display-image-from-http-request-to-external-api-with-nodejs)
 
-### Refactor the course RESTapi
 
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
