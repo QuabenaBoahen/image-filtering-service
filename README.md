@@ -13,7 +13,7 @@ You'll need to create a new node server. Open a new terminal within the project 
 
 You must have installed AWS EB cli before following the steps below. 
 
-You can follow this link ![Set up the Elastic Beanstalk Command Line Interface](https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/) to install and setup EB cli
+You can follow this link ![Set up the Elastic Beanstalk Command Line Interface] https://aws.amazon.com/getting-started/hands-on/set-up-command-line-elastic-beanstalk/ to install and setup EB cli
 
 ### Deploying the system to AWS Elastic Beanstalk
 
